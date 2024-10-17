@@ -59,6 +59,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
+  margin-top: 55px;
 }
 
 .add-student-form {
@@ -107,7 +108,23 @@ h1 {
     }
   }
 }
+.studentCard{
+  display: flex;
+  gap: 1rem;
+  padding: 0px 10px 0 10px;
+  align-items: baseline;
+  background-color: var(--surface-color);
+  border-radius: 5px;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  
 
+  button{
+    /* height: 100%; */
+    padding: 10px;
+    background-color:  var(--error-color);
+    border: none
+  };
+}
 .avatar {
   display: inline-flex;
   align-items: center;
@@ -146,4 +163,10 @@ h1 {
   .add-student-form {
     padding: 1.5rem;
   }
+}
+
+select{
+  background-color: var(--surface-color);
+  padding: 10px;
+  font-size: 15px;
 }

@@ -1,27 +1,19 @@
-import { useState } from "react";
-import Student from "./Student";
-import { student as StudentProps } from "./types";
+
 import AddStudentForm from "./AddStudentForm";
+import { PropsWithChildren } from "react";
 
 type GridProps = {
-   students: StudentProps[]
+   onAddStudent: ({ name }: { name: string }) => void; // Void does a logic bot does not return something
+};
 
-}
+// Use PropsWithChildren to define that children will be used here, with that no need to define "children" as type
+export default function Grid(props: PropsWithChildren<GridProps>) {
+  const { onAddStudent, children} = props
 
-export default function Grid(props: GridProps) {
-   const [students, setStudents] = useState<StudentProps[]>(props.students ?? [])
-   
-   const onAddStudent = (student: {name: string}) => {
-      setStudents((prev) => [...prev, {id: crypto.randomUUID(), ...student}])
-   }
    return (
       <section>
-      < article className = "grid" >
-      {students.map((student) => (
-      <Student key={student.id} id={student.id} name={student.name} />
-      ))}
-   </article>
-   <AddStudentForm onAddStudent={onAddStudent}/>
+         {children}
+      <AddStudentForm onAddStudent={onAddStudent}/>
    
    </section>
 )
